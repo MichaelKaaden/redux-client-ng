@@ -10,7 +10,7 @@ angular.module("reduxClientNG")
 
         $routeProvider
             .when("/counters", {
-                controller: "CountersController+",
+                controller: "CountersController",
                 controllerAs: "vm",
                 template: require("./components/counters/counters.component.html"),
             })
