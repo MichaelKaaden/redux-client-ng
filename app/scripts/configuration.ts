@@ -1,4 +1,4 @@
-interface IConfiguration {
+export interface IConfiguration {
     appMode: string;
     apiServer: string;
 }
