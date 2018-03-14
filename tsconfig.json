@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "listEmittedFiles": false,
+    "locale": "en",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "outDir": "./.js/",
+    "pretty": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "target": "ES5"
+  },
+  "include": [
+    "app/scripts/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}
