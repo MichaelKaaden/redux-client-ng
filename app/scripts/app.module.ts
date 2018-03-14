@@ -8,9 +8,9 @@ import "angular-translate";
 import "angular-translate-loader-static-files";
 import "es6-shim";
 import "jquery";
+
 import { CountersComponent } from "./components/counters/counters.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-
 import { Configuration } from "./configuration";
 
 angular.module("reduxClientNG",
@@ -22,7 +22,7 @@ angular.module("reduxClientNG",
         "pascalprecht.translate",
         "reduxClientNG.config",
         "reduxClientNG.components",
-        "reduxClientNGng.services",
+        "reduxClientNG.services",
         "ui.materialize",
     ]);
 
