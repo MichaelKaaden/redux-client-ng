@@ -2,11 +2,10 @@ import { IAppVersionService } from "../../services/appversion.service";
 import { IBuildInformation, IBuildInformationService } from "../../services/build-information.service";
 
 export interface IMainPageController {
-    apiName: string;
-    apiVersion: string;
     appName: string;
     appVersion: string;
     buildInformation: IBuildInformation;
+    test: string;
 }
 
 export class MainPageController implements IMainPageController {
@@ -17,8 +16,6 @@ export class MainPageController implements IMainPageController {
         "rdxBuildInformationService",
     ];
 
-    public apiName: string;
-    public apiVersion: string;
     public appName: string;
     public appVersion: string;
     public buildInformation: IBuildInformation;
