@@ -1,4 +1,5 @@
 import * as angular from "angular";
+import { IErrorFormattingService } from "./error-formatting.service";
 
 export interface IAppVersion {
     name: string;
@@ -29,10 +30,14 @@ export class AppVersionService implements IAppVersionService {
     public static $inject = [
         "$http",
         "$log",
+        "$q",
+        "rdxErrorFormattingService",
     ];
 
     constructor(private $http: angular.IHttpService,
-                private $log: angular.ILogService) {
+                private $log: angular.ILogService,
+                private $q: angular.IQService,
+                private errorFormattingService: IErrorFormattingService) {
     }
 
     /**
@@ -41,10 +46,15 @@ export class AppVersionService implements IAppVersionService {
      * @returns {IPromise<IAppVersion>}
      */
     public getVersion(): angular.IPromise<IAppVersion> {
-        return this.$http.get("/app/version.json").then((response) => {
-            // TODO that's very ugly code -- need to improve on this!
-            const data: IMyResponse = response.data as IMyResponse;
-            return new AppVersion("redux-client", data.version);
-        });
+        return this.$http.get("/app/version.json")
+            .then((response) => {
+                const data: IMyResponse = response.data as IMyResponse;
+                return new AppVersion("redux-client", data.version);
+            })
+            .catch((error) => {
+                this.$log.error("AppVersionService.getVersion:",
+                    this.errorFormattingService.formatErrorMessage(error));
+                return this.$q.reject(error);
+            });
     }
 }
