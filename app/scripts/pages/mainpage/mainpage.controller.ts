@@ -5,7 +5,6 @@ export interface IMainPageController {
     appName: string;
     appVersion: string;
     buildInformation: IBuildInformation;
-    test: string;
 }
 
 export class MainPageController implements IMainPageController {
