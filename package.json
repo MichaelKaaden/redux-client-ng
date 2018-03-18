@@ -35,15 +35,15 @@
   "dependencies": {
     "angular": "^1.6.9",
     "angular-cookies": "^1.6.9",
-    "angular-materialize": "^0.2.2",
+    "angular-materialize": "git+https://github.com/krescruz/angular-materialize.git#32616b329e7a6a9dd9c9f8938bfcb8202612674f",
     "angular-resource": "^1.6.9",
     "angular-route": "^1.6.9",
     "angular-touch": "^1.6.9",
     "angular-translate": "^2.17.0",
     "angular-translate-loader-static-files": "^2.17.0",
     "es6-shim": "^0.35.3",
-    "jquery": "^3.3.1",
-    "materialize-css": "^0.100.2"
+    "jquery": "~3.3.1",
+    "materialize-css": "git+https://github.com/MichaelKaaden/materialize.git#~0.100.3"
   },
   "devDependencies": {
     "@types/angular": "^1.6.43",
@@ -55,7 +55,7 @@
     "@types/es6-shim": "^0.31.36",
     "@types/jasmine": "^2.8.6",
     "@types/jquery": "^3.3.1",
-    "@types/materialize-css": "^1.0.1",
+    "@types/materialize-css": "~0.100.2",
     "@types/node": "^9.4.7",
     "@types/webpack-env": "^1.13.5",
     "angular-mocks": "^1.6.9",
