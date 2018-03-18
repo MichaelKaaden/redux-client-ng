@@ -1,6 +1,4 @@
 import * as angular from "angular";
-import "materialize-css";
-import "../sass/main.scss";
 import "./app.module";
 import "./routing";
 

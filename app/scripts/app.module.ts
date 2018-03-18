@@ -8,6 +8,12 @@ import "angular-translate";
 import "angular-translate-loader-static-files";
 import "es6-shim";
 import "jquery";
+import "materialize-css";
+
+/*
+ * Styles
+ */
+import "../sass/main.scss";
 
 import { CountersComponent } from "./components/counters/counters.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
