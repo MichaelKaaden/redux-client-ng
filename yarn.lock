@@ -48,15 +48,22 @@
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.1.tgz#55758d44d422756d6329cbf54e6d41931d7ba28f"
 
-"@types/materialize-css@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-1.0.1.tgz#f06beace24f8c3f8aea5345987fb42c4b51bdf35"
+"@types/materialize-css@~0.100.2":
+  version "0.100.4"
+  resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-0.100.4.tgz#0916aa6f78200539b05b00caf682187db11b0802"
   dependencies:
     "@types/jquery" "*"
+    "@types/pickadate" "*"
 
 "@types/node@*", "@types/node@^9.4.7":
   version "9.4.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.7.tgz#57d81cd98719df2c9de118f2d5f3b1120dcd7275"
+
+"@types/pickadate@*":
+  version "3.5.31"
+  resolved "https://registry.yarnpkg.com/@types/pickadate/-/pickadate-3.5.31.tgz#b5d0c1b0f2b07653d41fded4aad2e86346a4247c"
+  dependencies:
+    "@types/jquery" "*"
 
 "@types/webpack-env@^1.13.5":
   version "1.13.5"
@@ -178,9 +185,9 @@ angular-cookies@^1.6.9:
   version "1.6.9"
   resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.6.9.tgz#7cadddab1eda8a2fce6901d19e651be5cd320758"
 
-angular-materialize@^0.2.2:
+"angular-materialize@git+https://github.com/krescruz/angular-materialize.git#32616b329e7a6a9dd9c9f8938bfcb8202612674f":
   version "0.2.2"
-  resolved "https://registry.yarnpkg.com/angular-materialize/-/angular-materialize-0.2.2.tgz#13304ce00e983e02d24cac4d835e1f4b9cb10cd3"
+  resolved "git+https://github.com/krescruz/angular-materialize.git#32616b329e7a6a9dd9c9f8938bfcb8202612674f"
   dependencies:
     node-materialize "https://github.com/ryepdx/node-materialize/tarball/master"
 
@@ -4492,9 +4499,9 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-materialize-css@^0.100.2:
+"materialize-css@git+https://github.com/MichaelKaaden/materialize.git#~0.100.3":
   version "0.100.2"
-  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-0.100.2.tgz#9ca32b24904c9a04491fc7d0a2e9402e7b1dae07"
+  resolved "git+https://github.com/MichaelKaaden/materialize.git#3737fe99df45714d410bedb7109c6e78a4e974be"
   dependencies:
     hammerjs "^2.0.8"
     jquery "^3.0.0 || ^2.1.4"
