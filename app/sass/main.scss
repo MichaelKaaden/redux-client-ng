@@ -3,12 +3,13 @@
 
 body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
   flex: 1 0 auto;
+  min-height: calc(100vH - 149px); // TODO this works, but I have no idea why
 }
 
 footer.my-page-footer {
