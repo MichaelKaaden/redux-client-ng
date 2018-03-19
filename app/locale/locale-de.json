@@ -1,3 +1,11 @@
 ﻿{
+  "COUNTERS": {
+    "HEADING": "Zähler",
+    "LINK_TO_DASHBOARD": "Zur Übersicht"
+  },
+  "DASHBOARD": {
+    "HEADING": "Übersicht",
+    "LINK_TO_COUNTERS": "Zu den Zählern"
+  },
   "VERSION_INFORMATION": "Versionsinformationen"
 }

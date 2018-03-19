@@ -1,3 +1,11 @@
 ﻿{
+  "COUNTERS": {
+    "HEADING": "Counters",
+    "LINK_TO_DASHBOARD": "Go to the dashboard"
+  },
+  "DASHBOARD": {
+    "HEADING": "Dashboard",
+    "LINK_TO_COUNTERS": "Go to the counters"
+  },
   "VERSION_INFORMATION": "Version Information"
 }
