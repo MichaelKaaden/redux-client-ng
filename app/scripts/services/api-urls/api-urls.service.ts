@@ -10,7 +10,17 @@ export interface IApiUrlsService {
 
     interpolateRestUrl(url: string, params: any): string;
 
+    getCounterUrlTemplate(): UrlTemplate;
+
+    getCountersUrlTemplate(): UrlTemplate;
+
+    setCounterUrlTemplate(): UrlTemplate;
+
+    decrementCounterUrlTemplate(): UrlTemplate;
+
     getVersionInformationUrlTemplate(): UrlTemplate;
+
+    incrementCounterUrlTemplate(): UrlTemplate;
 }
 
 export class ApiUrlsService implements IApiUrlsService {
@@ -48,6 +58,27 @@ export class ApiUrlsService implements IApiUrlsService {
             }
         }
         return url;
+    }
+
+    // Counters
+    public getCounterUrlTemplate(): UrlTemplate {
+        return this.buildApiUrlTemplate("/counters/{index}");
+    }
+
+    public getCountersUrlTemplate(): UrlTemplate {
+        return this.buildApiUrlTemplate("/counters");
+    }
+
+    public setCounterUrlTemplate(): UrlTemplate {
+        return this.buildApiUrlTemplate("/counters/{index}");
+    }
+
+    public decrementCounterUrlTemplate(): UrlTemplate {
+        return this.buildApiUrlTemplate("/counters/{index}/decrement");
+    }
+
+    public incrementCounterUrlTemplate(): UrlTemplate {
+        return this.buildApiUrlTemplate("/counters/{index}/increment");
     }
 
     // Version information
