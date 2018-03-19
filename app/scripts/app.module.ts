@@ -55,4 +55,3 @@ angular.module("reduxClientNG.services", [])
     .service(AppVersionService.serviceId, AppVersionService)
     .service(BuildInformationService.serviceId, BuildInformationService)
     .service(ErrorFormattingService.serviceId, ErrorFormattingService);
-
