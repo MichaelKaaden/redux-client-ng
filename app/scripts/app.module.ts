@@ -9,7 +9,6 @@ import "angular-translate-loader-static-files";
 import "es6-shim";
 import "jquery";
 import "materialize-css";
-
 /*
  * Styles
  */
@@ -17,6 +16,8 @@ import "../sass/main.scss";
 
 import { CountersComponent } from "./components/counter-list/counter-list.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { HeadingComponent } from "./components/heading/heading.component";
+import { NumberInputComponent } from "./components/number-input/number-input.component";
 import { Configuration } from "./configuration";
 import { MainPageComponent } from "./pages/mainpage/mainpage.component";
 import { ApiUrlsService } from "./services/api-urls/api-urls.service";
@@ -43,12 +44,12 @@ angular.module("reduxClientNG",
 angular.module("reduxClientNG.components", [])
     .component(CountersComponent.componentId, new CountersComponent())
     .component(DashboardComponent.componentId, new DashboardComponent())
-    .component(MainPageComponent.componentId, new MainPageComponent());
+    .component(HeadingComponent.componentId, new HeadingComponent())
+    .component(MainPageComponent.componentId, new MainPageComponent())
+    .component(NumberInputComponent.componentId, new NumberInputComponent());
 
 angular.module("reduxClientNG.config", [])
     .constant("reduxConfiguration", new Configuration());
-
-angular.module("reduxClientNG.models", []);
 
 angular.module("reduxClientNG.services", [])
     .service(ApiUrlsService.serviceId, ApiUrlsService)
