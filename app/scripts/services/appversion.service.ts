@@ -49,7 +49,7 @@ export class AppVersionService implements IAppVersionService {
         return this.$http.get("/app/version.json")
             .then((response) => {
                 const data: IMyResponse = response.data as IMyResponse;
-                return new AppVersion("redux-client", data.version);
+                return new AppVersion("redux-client-ng", data.version);
             })
             .catch((error) => {
                 this.$log.error("AppVersionService.getVersion:",
