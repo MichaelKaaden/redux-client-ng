@@ -12,6 +12,7 @@ import "materialize-css";
 
 import "../sass/main.scss";
 
+import { CounterContainerComponent } from "./components/counter-container/counter-container.component";
 import { CounterHeadingComponent } from "./components/counter-heading/counter-heading.component";
 import { CounterListComponent } from "./components/counter-list/counter-list.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
@@ -21,6 +22,7 @@ import { MainPageComponent } from "./pages/mainpage/mainpage.component";
 import { ApiUrlsService } from "./services/api-urls/api-urls.service";
 import { AppVersionService } from "./services/appversion.service";
 import { BuildInformationService } from "./services/build-information.service";
+import { CounterService } from "./services/counter.service";
 import { ErrorFormattingService } from "./services/error-formatting.service";
 
 angular.module("reduxClientNG",
@@ -40,6 +42,7 @@ angular.module("reduxClientNG",
  * register modules
  */
 angular.module("reduxClientNG.components", [])
+    .component(CounterContainerComponent.componentId, new CounterContainerComponent())
     .component(CounterHeadingComponent.componentId, new CounterHeadingComponent())
     .component(CounterListComponent.componentId, new CounterListComponent())
     .component(DashboardComponent.componentId, new DashboardComponent())
@@ -47,10 +50,11 @@ angular.module("reduxClientNG.components", [])
     .component(NumberInputComponent.componentId, new NumberInputComponent());
 
 angular.module("reduxClientNG.config", [])
-    .constant("reduxConfiguration", new Configuration());
+    .constant("rdxConfiguration", new Configuration());
 
 angular.module("reduxClientNG.services", [])
     .service(ApiUrlsService.serviceId, ApiUrlsService)
     .service(AppVersionService.serviceId, AppVersionService)
     .service(BuildInformationService.serviceId, BuildInformationService)
+    .service(CounterService.serviceId, CounterService)
     .service(ErrorFormattingService.serviceId, ErrorFormattingService);

@@ -184,7 +184,3 @@ export class CounterService implements ICounterService {
         }, this.DELAY);
     }
 }
-
-angular
-    .module("reduxClient.services")
-    .service(CounterService.serviceId, CounterService);

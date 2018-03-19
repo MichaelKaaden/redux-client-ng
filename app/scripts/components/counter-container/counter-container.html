@@ -1,0 +1,10 @@
+<h2>Counter #{{ $ctrl.counterIndex }}</h2>
+
+<rdx-heading counter-index="$ctrl.counterIndex"
+             counter="$ctrl.counter"></rdx-heading>
+
+<rdx-number-input counter-index="$ctrl.counterIndex"
+                  counter="$ctrl.counter"
+                  decrement="$ctrl.decrement"
+                  increment="$ctrl.increment"
+                  load="$ctrl.load"></rdx-number-input>
