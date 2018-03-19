@@ -13,10 +13,10 @@ export class NumberInputComponent implements angular.IComponentOptions {
 
     constructor() {
         this.bindings = {
-            counter: "<",
+            // counter: "<",
             counterIndex: "<",
-            decrement: "=",  // two-way binding instead of "&", else it won't work
-            increment: "=",  // two-way binding instead of "&", else it won't work
+            // decrement: "=",  // two-way binding instead of "&", else it won't work
+            // increment: "=",  // two-way binding instead of "&", else it won't work
         };
 
         this.template = require("./number-input.html");

@@ -13,7 +13,7 @@ export class CounterHeadingComponent implements angular.IComponentOptions {
 
     constructor() {
         this.bindings = {
-            counter: "<",
+            // counter: "<",
             counterIndex: "<",
         };
 
