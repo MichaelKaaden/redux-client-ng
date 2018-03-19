@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { CountersController } from "./components/counters/counters.controller";
+import { CountersController } from "./components/counter-list/counter-list.controller";
 import { DashboardController } from "./components/dashboard/dashboard.controller";
 
 angular.module("reduxClientNG")
@@ -13,7 +13,7 @@ angular.module("reduxClientNG")
             .when("/counters", {
                 controller: CountersController,
                 controllerAs: "vm",
-                template: require("./components/counters/counters.view.html"),
+                template: require("./components/counter-list/counter-list.view.html"),
             })
             .when("/dashboard", {
                 controller: DashboardController,

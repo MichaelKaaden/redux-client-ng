@@ -15,7 +15,7 @@ import "materialize-css";
  */
 import "../sass/main.scss";
 
-import { CountersComponent } from "./components/counters/counters.component";
+import { CountersComponent } from "./components/counter-list/counter-list.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { Configuration } from "./configuration";
 import { MainPageComponent } from "./pages/mainpage/mainpage.component";
