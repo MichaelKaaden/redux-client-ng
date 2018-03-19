@@ -9,14 +9,12 @@ import "angular-translate-loader-static-files";
 import "es6-shim";
 import "jquery";
 import "materialize-css";
-/*
- * Styles
- */
+
 import "../sass/main.scss";
 
-import { CountersComponent } from "./components/counter-list/counter-list.component";
+import { CounterHeadingComponent } from "./components/counter-heading/counter-heading.component";
+import { CounterListComponent } from "./components/counter-list/counter-list.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { HeadingComponent } from "./components/heading/heading.component";
 import { NumberInputComponent } from "./components/number-input/number-input.component";
 import { Configuration } from "./configuration";
 import { MainPageComponent } from "./pages/mainpage/mainpage.component";
@@ -42,9 +40,9 @@ angular.module("reduxClientNG",
  * register modules
  */
 angular.module("reduxClientNG.components", [])
-    .component(CountersComponent.componentId, new CountersComponent())
+    .component(CounterHeadingComponent.componentId, new CounterHeadingComponent())
+    .component(CounterListComponent.componentId, new CounterListComponent())
     .component(DashboardComponent.componentId, new DashboardComponent())
-    .component(HeadingComponent.componentId, new HeadingComponent())
     .component(MainPageComponent.componentId, new MainPageComponent())
     .component(NumberInputComponent.componentId, new NumberInputComponent());
 

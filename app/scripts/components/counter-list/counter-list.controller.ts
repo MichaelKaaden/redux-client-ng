@@ -1,3 +1,3 @@
-export class CountersController {
-    public static controllerId = "rdxCountersController";
+export class CounterListController {
+    public static controllerId = "rdxCounterListController";
 }

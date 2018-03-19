@@ -1,8 +1,8 @@
 import * as angular from "angular";
 
-import { HeadingController } from "./heading.controller";
+import { CounterHeadingController } from "./counter-heading.controller";
 
-export class HeadingComponent implements angular.IComponentOptions {
+export class CounterHeadingComponent implements angular.IComponentOptions {
     public static componentId = "rdxHeading";
 
     // component specific variables
@@ -17,8 +17,8 @@ export class HeadingComponent implements angular.IComponentOptions {
             counterIndex: "<",
         };
 
-        this.template = require("./heading.html");
-        this.controller = HeadingController;
+        this.template = require("./counter-heading.html");
+        this.controller = CounterHeadingController;
         this.controllerAs = "$ctrl";
     }
 }

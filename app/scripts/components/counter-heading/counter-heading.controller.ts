@@ -2,12 +2,12 @@ import * as angular from "angular";
 
 import { ICounter } from "../../models/counter.model";
 
-export interface IHeadingController {
+export interface ICounterHeadingController {
     counter: ICounter;
     counterIndex: number;
 }
 
-export class HeadingController implements IHeadingController {
+export class CounterHeadingController implements ICounterHeadingController {
     public static $inject = [
         "$scope",
     ];
