@@ -1,6 +1,4 @@
 import * as ngRedux from "ng-redux";
-import { ThunkAction } from "redux-thunk";
-import { IAppState } from "../models/app-state";
 import { Counter, ICounter } from "../models/counter.model";
 import { CounterService } from "../services/counter.service";
 import {
@@ -14,9 +12,6 @@ import {
     TypeKeys,
 } from "./counter.actions";
 import { ErrorsActionCreatorService } from "./errors.action-creator.service";
-
-// own type to make typing easier
-type Thunk = ThunkAction<void, IAppState, void>;
 
 export class CounterActionCreatorService {
     public static serviceId = "rdxCounterActionCreatorService";
