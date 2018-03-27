@@ -26,14 +26,13 @@ export class NumberInputController implements INumberInputController {
         this.load();
     }
 
-
     // capture this properly
     public decrement = (by: number): void => {
         this.counterService.decrementCounter(this.counterIndex, by)
             .then((c) => {
                 this.counter = new Counter(c.index, c.value);
             });
-    };
+    }
 
     // capture this properly
     public increment = (by: number): void => {
@@ -41,7 +40,7 @@ export class NumberInputController implements INumberInputController {
             .then((c) => {
                 this.counter = new Counter(c.index, c.value);
             });
-    };
+    }
 
     public load(): void {
         this.counterService.counter(this.counterIndex)
