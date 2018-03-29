@@ -1,55 +1,55 @@
 import * as angular from "angular";
-import { ICounterService } from "../../services/counter.service";
+
+import { ICounterActionCreatorService } from "../../actions/counter.action-creator.service";
+import { IAppState } from "../../models/app-state";
 
 export interface ICounterContainerController {
-    // counter: ICounter;
     counterIndex: number;
 
-    // decrement(by: number): void;
+    decrement(by: number): void;
 
-    // increment(by: number): void;
+    increment(by: number): void;
 
-    // load(): void;
+    load(): void;
 }
 
 export class CounterContainerController implements ICounterContainerController {
     public static $inject = [
+        "$ngRedux",
         "$scope",
-        "rdxCounterService",
+        "rdxCounterActionCreatorService"
     ];
 
-    // public counter: ICounter;
     public counterIndex: number;
 
-    constructor(private $scope: angular.IScope,
-                private counterService: ICounterService) {
+    constructor(private $ngRedux: ngRedux.INgRedux,
+                private $scope: angular.IScope,
+                private counterActionCreatorService: ICounterActionCreatorService) {
     }
 
-    // public $onInit() {
-    //     this.load();
-    // }
-    //
-    //
-    // // capture this properly
-    // public decrement = (by: number): void => {
-    //     this.counterService.decrementCounter(this.counterIndex, by)
-    //         .then((c) => {
-    //             this.counter = new Counter(c.index, c.value);
-    //         });
-    // };
-    //
-    // // capture this properly
-    // public increment = (by: number): void => {
-    //     this.counterService.incrementCounter(this.counterIndex, by)
-    //         .then((c) => {
-    //             this.counter = new Counter(c.index, c.value);
-    //         });
-    // };
-    //
-    // public load(): void {
-    //     this.counterService.counter(this.counterIndex)
-    //         .then((c) => {
-    //             this.counter = new Counter(c.index, c.value);
-    //         });
-    // }
+    public $onInit() {
+        const unsubscribe = this.$ngRedux.connect(this.mapStateToTarget.bind(this))(this);
+        this.$scope.$on("$destroy", unsubscribe);
+        this.load();
+    }
+
+    // capture this properly
+    public decrement = (by: number): void => {
+        this.counterActionCreatorService.decrement(this.counterIndex, by);
+    };
+
+    // capture this properly
+    public increment = (by: number): void => {
+        this.counterActionCreatorService.increment(this.counterIndex, by);
+    };
+
+    public load(): void {
+        this.counterActionCreatorService.load(this.counterIndex);
+    }
+
+    private mapStateToTarget(state: IAppState) {
+        return {
+            counter: state.counters.all.find((item) => item.index === this.counterIndex)
+        };
+    }
 }
