@@ -9,7 +9,7 @@ export interface INumberInputController {
 
 export class NumberInputController implements INumberInputController {
     public static $inject = [
-        "$scope"
+        "$scope",
     ];
 
     public counter: ICounter;

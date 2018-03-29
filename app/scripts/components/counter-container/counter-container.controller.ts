@@ -17,7 +17,7 @@ export class CounterContainerController implements ICounterContainerController {
     public static $inject = [
         "$ngRedux",
         "$scope",
-        "rdxCounterActionCreatorService"
+        "rdxCounterActionCreatorService",
     ];
 
     public counterIndex: number;
@@ -36,12 +36,12 @@ export class CounterContainerController implements ICounterContainerController {
     // capture this properly
     public decrement = (by: number): void => {
         this.counterActionCreatorService.decrement(this.counterIndex, by);
-    };
+    }
 
     // capture this properly
     public increment = (by: number): void => {
         this.counterActionCreatorService.increment(this.counterIndex, by);
-    };
+    }
 
     public load(): void {
         this.counterActionCreatorService.load(this.counterIndex);
@@ -49,7 +49,7 @@ export class CounterContainerController implements ICounterContainerController {
 
     private mapStateToTarget(state: IAppState) {
         return {
-            counter: state.counters.all.find((item) => item.index === this.counterIndex)
+            counter: state.counters.all.find((item) => item.index === this.counterIndex),
         };
     }
 }

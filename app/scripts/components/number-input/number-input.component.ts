@@ -16,7 +16,7 @@ export class NumberInputComponent implements angular.IComponentOptions {
             counter: "<",
             counterIndex: "<",
             decrement: "=",  // two-way binding instead of "&", else it won't work
-            increment: "="  // two-way binding instead of "&", else it won't work
+            increment: "=",  // two-way binding instead of "&", else it won't work
         };
 
         this.template = require("./number-input.html");

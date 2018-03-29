@@ -9,7 +9,7 @@ export interface ICounterHeadingController {
 
 export class CounterHeadingController implements ICounterHeadingController {
     public static $inject = [
-        "$scope"
+        "$scope",
     ];
 
     public counter: ICounter;
