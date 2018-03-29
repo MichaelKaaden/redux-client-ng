@@ -13,7 +13,17 @@ import {
 } from "./counter.actions";
 import { ErrorsActionCreatorService } from "./errors.action-creator.service";
 
-export class CounterActionCreatorService {
+export interface ICounterActionCreatorService {
+    decrement(index: number, by: number);
+
+    increment(index: number, by: number);
+
+    load(index: number);
+
+    loadAll();
+}
+
+export class CounterActionCreatorService implements ICounterActionCreatorService {
     public static serviceId = "rdxCounterActionCreatorService";
 
     public static $inject = [
@@ -198,9 +208,5 @@ export class CounterActionCreatorService {
                 index,
             },
         };
-    }
-
-    private logError(methodName: string, message: string) {
-        console.error(`error in the "${methodName}" action creator: ${message}`);
     }
 }
