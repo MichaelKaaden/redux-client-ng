@@ -4,8 +4,11 @@
     "LINK_TO_DASHBOARD": "Zur Übersicht"
   },
   "DASHBOARD": {
+    "AVERAGE": "Der Durchschnittswert ist {{ average }}",
+    "COUNTER_VALUE_SUM": "Die Summe über all Deine Zähler ist {{ counterValueSum }}",
     "HEADING": "Übersicht",
-    "LINK_TO_COUNTERS": "Zu den Zählern"
+    "LINK_TO_COUNTERS": "Zu den Zählern",
+    "NUMBER_OF_COUNTERS": "Du hast {{ numOfCounters }} Zähler."
   },
   "VERSION_INFORMATION": "Versionsinformationen"
 }
