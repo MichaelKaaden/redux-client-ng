@@ -56,7 +56,10 @@ const reduxConfig = ($ngReduxProvider: ngRedux.INgReduxProvider) => {
         enhancers.push((window as any).__REDUX_DEVTOOLS_EXTENSION__());
     }
 
-    $ngReduxProvider.createStoreWith(rootReducer, [logger], enhancers);
+    $ngReduxProvider.createStoreWith(rootReducer, [
+        "ngRouterMiddleware",
+        logger,
+    ], enhancers);
 };
 reduxConfig.$inject = ["$ngReduxProvider"];
 main.config(reduxConfig);

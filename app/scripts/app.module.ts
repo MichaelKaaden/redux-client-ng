@@ -11,6 +11,8 @@ import "es6-shim";
 import "jquery";
 import "materialize-css";
 import "ng-redux";
+import ngReduxRouter from "ng-redux-router";
+
 
 import "../sass/main.scss";
 import { CounterActionCreatorService } from "./actions/counter.action-creator.service";
@@ -33,6 +35,7 @@ angular.module("reduxClientNG",
     [
         "ngCookies",
         "ngRedux",
+        ngReduxRouter,
         "ngResource",
         "ngRoute",
         "ngTouch",
