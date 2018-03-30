@@ -8,7 +8,6 @@
     "build-fast": "webpack --config webpack.prod.js",
     "dev": "yarn && grunt && webpack-dev-server --config webpack.dev.js --open --progress --colors",
     "precommit": "yarn run tslint-fix",
-    "prepush": "yarn run test",
     "prod": "yarn run build && node server.js",
     "prod-fast": "node server.js",
     "stats": "webpack --config webpack.prod.js --profile --json > webpack-stats.json",
