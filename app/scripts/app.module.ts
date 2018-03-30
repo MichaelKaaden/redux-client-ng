@@ -13,7 +13,6 @@ import "materialize-css";
 import "ng-redux";
 import ngReduxRouter from "ng-redux-router";
 
-
 import "../sass/main.scss";
 import { CounterActionCreatorService } from "./actions/counter.action-creator.service";
 import { ErrorsActionCreatorService } from "./actions/errors.action-creator.service";
