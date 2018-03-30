@@ -1,2 +1,4 @@
-<h4 ng-if="$ctrl.counter.isLoading">Counter #{{$ctrl.counterIndex}}: &lt;still loading&gt;</h4>
-<h4 ng-if="!$ctrl.counter.isLoading">Counter #{{$ctrl.counterIndex}}: Current value is {{$ctrl.counter.value}}</h4>
+<h4 ng-if="$ctrl.counter.isLoading" translate="COUNTERS.HEADING_HEADING_LOADING"
+    translate-values="{ counterIndex: $ctrl.counterIndex }"></h4>
+<h4 ng-if="!$ctrl.counter.isLoading" translate="COUNTERS.HEADING_HEADING"
+    translate-values="{ counterIndex: $ctrl.counterIndex, value: $ctrl.counter.value }"></h4>

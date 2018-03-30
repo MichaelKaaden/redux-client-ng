@@ -1,6 +1,9 @@
 ﻿{
   "COUNTERS": {
+    "CONTAINER_HEADING": "Counter #{{ counterIndex }}",
     "HEADING": "Counters",
+    "HEADING_HEADING": "Counter #{{ counterIndex }}: Current value is {{ value }}",
+    "HEADING_HEADING_LOADING": "Counter #{{ counterIndex }}: &lt;loading&gt;",
     "LINK_TO_DASHBOARD": "Go to the dashboard"
   },
   "DASHBOARD": {
