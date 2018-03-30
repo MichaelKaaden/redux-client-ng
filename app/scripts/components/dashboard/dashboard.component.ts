@@ -1,6 +1,3 @@
-interface IDashboardComponent {
-}
-
-export class DashboardComponent implements IDashboardComponent {
+export class DashboardComponent implements angular.IComponentOptions {
     public static componentId = "rdxDashboardComponent";
 }

@@ -1,4 +1,5 @@
 import * as angular from "angular";
+
 import "angular-cookies";
 import "angular-materialize";
 import "angular-resource";
@@ -9,8 +10,12 @@ import "angular-translate-loader-static-files";
 import "es6-shim";
 import "jquery";
 import "materialize-css";
+import "ng-redux";
+import ngReduxRouter from "ng-redux-router";
 
 import "../sass/main.scss";
+import { CounterActionCreatorService } from "./actions/counter.action-creator.service";
+import { ErrorsActionCreatorService } from "./actions/errors.action-creator.service";
 
 import { CounterContainerComponent } from "./components/counter-container/counter-container.component";
 import { CounterHeadingComponent } from "./components/counter-heading/counter-heading.component";
@@ -28,6 +33,8 @@ import { ErrorFormattingService } from "./services/error-formatting.service";
 angular.module("reduxClientNG",
     [
         "ngCookies",
+        "ngRedux",
+        ngReduxRouter,
         "ngResource",
         "ngRoute",
         "ngTouch",
@@ -56,5 +63,7 @@ angular.module("reduxClientNG.services", [])
     .service(ApiUrlsService.serviceId, ApiUrlsService)
     .service(AppVersionService.serviceId, AppVersionService)
     .service(BuildInformationService.serviceId, BuildInformationService)
+    .service(CounterActionCreatorService.serviceId, CounterActionCreatorService)
     .service(CounterService.serviceId, CounterService)
-    .service(ErrorFormattingService.serviceId, ErrorFormattingService);
+    .service(ErrorFormattingService.serviceId, ErrorFormattingService)
+    .service(ErrorsActionCreatorService.serviceId, ErrorsActionCreatorService);

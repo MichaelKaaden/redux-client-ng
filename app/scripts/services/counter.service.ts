@@ -57,7 +57,7 @@ export class CounterService implements ICounterService {
                 },
             },
         });
-        const params = {index};
+        const params = { index };
 
         return this.$timeout(() => {
             return counterResource.get(params).$promise.then((result: ICounter) => {
@@ -82,7 +82,7 @@ export class CounterService implements ICounterService {
                 method: "GET",
                 isArray: true,
                 transformResponse: (data: string) => {
-                    return angular.fromJson(data).data;
+                    return angular.fromJson(data).data.counters;
                 },
             },
         });
@@ -117,7 +117,7 @@ export class CounterService implements ICounterService {
             index,
         };
 
-        return updateResource.update(params, {count: value}).$promise.then((result) => {
+        return updateResource.update(params, { count: value }).$promise.then((result) => {
             return result;
         }).catch((error) => {
             this.$log.error("CounterService.updateCounter:",
@@ -145,7 +145,7 @@ export class CounterService implements ICounterService {
         }) as IUpdateResourceClass<angular.resource.IResource<ICounter>>;
 
         return this.$timeout(() => {
-            return updateResource.update({index}, {by}).$promise.then((result) => {
+            return updateResource.update({ index }, { by }).$promise.then((result) => {
                 return result;
             }).catch((error) => {
                 this.$log.error("CounterService.decrementCounter:",
@@ -174,7 +174,7 @@ export class CounterService implements ICounterService {
         }) as IUpdateResourceClass<angular.resource.IResource<ICounter>>;
 
         return this.$timeout(() => {
-            return updateResource.update({index}, {by}).$promise.then((result) => {
+            return updateResource.update({ index }, { by }).$promise.then((result) => {
                 return result;
             }).catch((error) => {
                 this.$log.error("CounterService.incrementCounter:",

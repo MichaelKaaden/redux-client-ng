@@ -1,11 +1,17 @@
 ﻿{
   "COUNTERS": {
+    "CONTAINER_HEADING": "Counter #{{ counterIndex }}",
     "HEADING": "Counters",
+    "HEADING_HEADING": "Counter #{{ counterIndex }}: Current value is {{ value }}",
+    "HEADING_HEADING_LOADING": "Counter #{{ counterIndex }}: &lt;loading&gt;",
     "LINK_TO_DASHBOARD": "Go to the dashboard"
   },
   "DASHBOARD": {
+    "AVERAGE": "The average counter value is {{ average }}.",
+    "COUNTER_VALUE_SUM": "Counters sum up to {{ counterValueSum }}",
     "HEADING": "Dashboard",
-    "LINK_TO_COUNTERS": "Go to the counters"
+    "LINK_TO_COUNTERS": "Go to the counters",
+    "NUMBER_OF_COUNTERS": "You've got {{ numOfCounters }} counters."
   },
   "VERSION_INFORMATION": "Version Information"
 }

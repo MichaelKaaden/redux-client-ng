@@ -1,6 +1,3 @@
-interface ICounterListComponent {
-}
-
-export class CounterListComponent implements ICounterListComponent {
+export class CounterListComponent {
     public static componentId = "rdxCounterListComponent";
 }
