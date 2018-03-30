@@ -8,7 +8,7 @@ export class DashboardController {
     public static $inject = [
         "$ngRedux",
         "$scope",
-        "rdxCounterActionCreatorService"
+        "rdxCounterActionCreatorService",
     ];
 
     constructor(private $ngRedux: ngRedux.INgRedux,
@@ -28,7 +28,7 @@ export class DashboardController {
             average: this.getCounterValueSum(state) / state.counters.all.length,
             counterValueSum: this.getCounterValueSum(state),
             counters: state.counters.all,
-            numOfCounters: state.counters.all.length
+            numOfCounters: state.counters.all.length,
         };
     }
 }
