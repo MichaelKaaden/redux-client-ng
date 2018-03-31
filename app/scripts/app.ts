@@ -1,7 +1,9 @@
 import * as angular from "angular";
-import "materialize-css";
-import "../sass/main.scss";
+import * as ngRedux from "ng-redux";
+import logger from "redux-logger";
 import "./app.module";
+
+import { rootReducer } from "./reducers/reducers";
 import "./routing";
 
 const main = angular.module("reduxClientNG");
@@ -46,3 +48,18 @@ const logConfig = ($logProvider: angular.ILogProvider) => {
 };
 logConfig.$inject = ["$logProvider"];
 main.config(logConfig);
+
+const reduxConfig = ($ngReduxProvider: ngRedux.INgReduxProvider) => {
+    // add enhancer for the Redux DevTools extension
+    const enhancers = [];
+    if (process.env.NODE_ENV === "development" && (window as any).__REDUX_DEVTOOLS_EXTENSION__) {
+        enhancers.push((window as any).__REDUX_DEVTOOLS_EXTENSION__());
+    }
+
+    $ngReduxProvider.createStoreWith(rootReducer, [
+        "ngRouterMiddleware",
+        logger,
+    ], enhancers);
+};
+reduxConfig.$inject = ["$ngReduxProvider"];
+main.config(reduxConfig);

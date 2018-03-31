@@ -1,1 +1,17 @@
-﻿{}
+﻿{
+  "COUNTERS": {
+    "CONTAINER_HEADING": "Zähler #{{ counterIndex }}",
+    "HEADING": "Zähler",
+    "HEADING_HEADING": "Zähler #{{ counterIndex }}: Aktueller Wert ist {{ value }}",
+    "HEADING_HEADING_LOADING": "Zähler #{{ counterIndex }}: &lt;lädt&gt;",
+    "LINK_TO_DASHBOARD": "Zur Übersicht"
+  },
+  "DASHBOARD": {
+    "AVERAGE": "Der Durchschnittswert ist {{ average }}",
+    "COUNTER_VALUE_SUM": "Die Summe über all Deine Zähler ist {{ counterValueSum }}",
+    "HEADING": "Übersicht",
+    "LINK_TO_COUNTERS": "Zu den Zählern",
+    "NUMBER_OF_COUNTERS": "Du hast {{ numOfCounters }} Zähler."
+  },
+  "VERSION_INFORMATION": "Versionsinformationen"
+}

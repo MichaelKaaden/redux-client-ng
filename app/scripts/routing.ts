@@ -1,4 +1,6 @@
 import * as angular from "angular";
+import { CounterListController } from "./components/counter-list/counter-list.controller";
+import { DashboardController } from "./components/dashboard/dashboard.controller";
 
 angular.module("reduxClientNG")
     .config(["$locationProvider", ($locationProvider) => {
@@ -7,17 +9,16 @@ angular.module("reduxClientNG")
 
 angular.module("reduxClientNG")
     .config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => {
-
         $routeProvider
             .when("/counters", {
-                controller: "CountersController+",
+                controller: CounterListController,
                 controllerAs: "vm",
-                template: require("./components/counters/counters.component.html"),
+                template: require("./components/counter-list/counter-list.view.html"),
             })
             .when("/dashboard", {
-                controller: "DashboardController",
+                controller: DashboardController,
                 controllerAs: "vm",
-                template: require("./components/dashboard/dashboard.component"),
+                template: require("./components/dashboard/dashboard.view.html"),
             })
             .otherwise({
                 redirectTo: "/counters",
