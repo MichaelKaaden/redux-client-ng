@@ -1,5 +1,5 @@
 import * as ngRedux from "ng-redux";
-import { TypeKeys } from "./counter.actions";
+import { ErrorActionTypeKeys } from "./error.actions";
 
 export class ErrorsActionCreatorService {
     public static serviceId = "rdxErrorsActionCreatorService";
@@ -18,7 +18,7 @@ export class ErrorsActionCreatorService {
      */
     public setError(methodName: string, message: string) {
         this.$redux.dispatch({
-            type: TypeKeys.ERROR_OCCURRED,
+            type: ErrorActionTypeKeys.ERROR_OCCURRED,
             payload: {
                 error: `error in the "${methodName}" action creator: ${message}`,
             },
@@ -30,7 +30,7 @@ export class ErrorsActionCreatorService {
      */
     public resetError() {
         this.$redux.dispatch({
-            type: TypeKeys.RESET_ERRORS,
+            type: ErrorActionTypeKeys.RESET_ERRORS,
         });
     }
 }

@@ -2,6 +2,7 @@ import * as ngRedux from "ng-redux";
 import { Counter, ICounter } from "../models/counter.model";
 import { CounterService } from "../services/counter.service";
 import {
+    CounterActionTypeKeys,
     IDecrementCompletedCounterAction,
     IIncrementCompletedCounterAction,
     ILoadAllCompletedAction,
@@ -9,7 +10,6 @@ import {
     ILoadCompletedAction,
     ILoadPendingAction,
     ISavePendingAction,
-    TypeKeys,
 } from "./counter.actions";
 import { ErrorsActionCreatorService } from "./errors.action-creator.service";
 
@@ -149,7 +149,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildDecrementCompletedAction(index: number, counter: ICounter): IDecrementCompletedCounterAction {
         return {
-            type: TypeKeys.DECREMENT_COMPLETED,
+            type: CounterActionTypeKeys.DECREMENT_COMPLETED,
             payload: {
                 index,
                 counter,
@@ -159,7 +159,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildIncrementCompletedAction(index: number, counter: ICounter): IIncrementCompletedCounterAction {
         return {
-            type: TypeKeys.INCREMENT_COMPLETED,
+            type: CounterActionTypeKeys.INCREMENT_COMPLETED,
             payload: {
                 index,
                 counter,
@@ -169,7 +169,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildLoadAllCompletedAction(counters: ICounter[]): ILoadAllCompletedAction {
         return {
-            type: TypeKeys.LOAD_ALL_COMPLETED,
+            type: CounterActionTypeKeys.LOAD_ALL_COMPLETED,
             payload: {
                 counters,
             },
@@ -178,13 +178,13 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildLoadAllPendingAction(): ILoadAllPendingAction {
         return {
-            type: TypeKeys.LOAD_ALL_PENDING,
+            type: CounterActionTypeKeys.LOAD_ALL_PENDING,
         };
     }
 
     private buildLoadCompletedAction(index: number, counter: ICounter): ILoadCompletedAction {
         return {
-            type: TypeKeys.LOAD_COMPLETED,
+            type: CounterActionTypeKeys.LOAD_COMPLETED,
             payload: {
                 index,
                 counter,
@@ -194,7 +194,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildLoadPendingAction(index: number): ILoadPendingAction {
         return {
-            type: TypeKeys.LOAD_PENDING,
+            type: CounterActionTypeKeys.LOAD_PENDING,
             payload: {
                 index,
             },
@@ -203,7 +203,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
 
     private buildSavePendingAction(index: number): ISavePendingAction {
         return {
-            type: TypeKeys.SAVE_PENDING,
+            type: CounterActionTypeKeys.SAVE_PENDING,
             payload: {
                 index,
             },
