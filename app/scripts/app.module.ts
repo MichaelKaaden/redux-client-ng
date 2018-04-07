@@ -21,6 +21,7 @@ import { CounterContainerComponent } from "./components/counter-container/counte
 import { CounterHeadingComponent } from "./components/counter-heading/counter-heading.component";
 import { CounterListComponent } from "./components/counter-list/counter-list.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { ErrorsComponent } from "./components/errors/errors.component";
 import { NumberInputComponent } from "./components/number-input/number-input.component";
 import { Configuration } from "./configuration";
 import { MainPageComponent } from "./pages/mainpage/mainpage.component";
@@ -53,6 +54,7 @@ angular.module("reduxClientNG.components", [])
     .component(CounterHeadingComponent.componentId, new CounterHeadingComponent())
     .component(CounterListComponent.componentId, new CounterListComponent())
     .component(DashboardComponent.componentId, new DashboardComponent())
+    .component(ErrorsComponent.componentId, new ErrorsComponent())
     .component(MainPageComponent.componentId, new MainPageComponent())
     .component(NumberInputComponent.componentId, new NumberInputComponent());
 
