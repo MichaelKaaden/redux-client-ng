@@ -1,16 +1,16 @@
 import { Reducer } from "redux";
-import { ActionTypes, TypeKeys } from "../actions/counter.actions";
+import { CounterActionTypeKeys, CounterActionTypes } from "../actions/counter.actions";
 import { ICounterState, INITIAL_COUNTERS_STATE } from "../models/app-state";
 import { Counter, ICounter } from "../models/counter.model";
 
 export const counterReducer: Reducer<ICounterState> =
-    (state: ICounterState = INITIAL_COUNTERS_STATE, action: ActionTypes): ICounterState => {
+    (state: ICounterState = INITIAL_COUNTERS_STATE, action: CounterActionTypes): ICounterState => {
         let counter: ICounter;
         let newCounter: ICounter;
         let newCounters: ICounter[] = [];
 
         switch (action.type) {
-            case TypeKeys.DECREMENT_COMPLETED:
+            case CounterActionTypeKeys.DECREMENT_COMPLETED:
                 return {
                     all: state.all.map((item) => {
                         if (item.index !== action.payload.index) {
@@ -23,7 +23,7 @@ export const counterReducer: Reducer<ICounterState> =
                     }),
                 };
 
-            case TypeKeys.INCREMENT_COMPLETED:
+            case CounterActionTypeKeys.INCREMENT_COMPLETED:
                 return {
                     all: state.all.map((item) => {
                         if (item.index !== action.payload.index) {
@@ -36,7 +36,7 @@ export const counterReducer: Reducer<ICounterState> =
                     }),
                 };
 
-            case TypeKeys.LOAD_COMPLETED:
+            case CounterActionTypeKeys.LOAD_COMPLETED:
                 return {
                     all: state.all.map((item) => {
                         if (item.index !== action.payload.index) {
@@ -50,7 +50,7 @@ export const counterReducer: Reducer<ICounterState> =
                     }),
                 };
 
-            case TypeKeys.LOAD_ALL_COMPLETED:
+            case CounterActionTypeKeys.LOAD_ALL_COMPLETED:
                 const countersToAdd: ICounter[] = [];
                 for (const c of action.payload.counters) {
                     if (!state.all.find((item) => item.index === c.index)) {
@@ -71,7 +71,7 @@ export const counterReducer: Reducer<ICounterState> =
                     all: newCounters,
                 };
 
-            case TypeKeys.LOAD_PENDING:
+            case CounterActionTypeKeys.LOAD_PENDING:
                 /*
                  * This is the only case where the counter does probably not yet exist.
                  * It will be created and initialized with the counter and isLoading.
@@ -100,10 +100,10 @@ export const counterReducer: Reducer<ICounterState> =
                     all: newCounters,
                 };
 
-            case TypeKeys.LOAD_ALL_PENDING:
+            case CounterActionTypeKeys.LOAD_ALL_PENDING:
                 return state;
 
-            case TypeKeys.SAVE_PENDING:
+            case CounterActionTypeKeys.SAVE_PENDING:
                 /*
                  * Get the counter we're saving so we can use its old value until the new one
                  * is retrieved from the server.

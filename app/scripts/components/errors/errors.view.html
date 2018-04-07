@@ -1,0 +1,9 @@
+<div ng-if="$ctrl.errors.length > 0">
+    <ul style="color: red;">
+        <li ng-repeat="error in $ctrl.errors track by $index">
+            {{ error }}
+        </li>
+    </ul>
+
+    <a class="waves-effect waves-light btn" ng-click="$ctrl.reset()">Reset</a>
+</div>
