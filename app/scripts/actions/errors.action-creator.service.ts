@@ -19,7 +19,9 @@ export class ErrorsActionCreatorService {
     public setError(methodName: string, message: string) {
         this.$redux.dispatch({
             type: TypeKeys.ERROR_OCCURRED,
-            error: `error in the "${methodName}" action creator: ${message}`,
+            payload: {
+                error: `error in the "${methodName}" action creator: ${message}`,
+            },
         });
     }
 
