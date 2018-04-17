@@ -1,5 +1,8 @@
 # AngularJS Redux Client
 
+[![GitHub version](https://badge.fury.io/gh/MichaelKaaden%2Fredux-client-ng.svg)](https://badge.fury.io/gh/MichaelKaaden%2Fredux-client-ng)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This is a single-page applicaton written in TypeScript
 using AngularJS. It retrieves counters from a REST service
 and displays them. You can increase and decrease each counter's
