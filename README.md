@@ -1,7 +1,10 @@
 # AngularJS Redux Client
 
-[![GitHub version](https://badge.fury.io/gh/MichaelKaaden%2Fredux-client-ng.svg)](https://badge.fury.io/gh/MichaelKaaden%2Fredux-client-ng)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub last commit](https://img.shields.io/github/last-commit/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/commits/master)
+[![GitHub tag](https://img.shields.io/github/tag/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/releases)
+[![GitHub version](https://img.shields.io/github/package-json/v/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/blob/master/package.json)
+[![GitHub issues](https://img.shields.io/github/issues/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/issues)
+[![license](https://img.shields.io/github/license/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng)
 
 This is a single-page applicaton written in TypeScript
 using AngularJS. It retrieves counters from a REST service
