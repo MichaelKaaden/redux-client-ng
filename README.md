@@ -3,8 +3,8 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/commits/master)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/releases)
 [![GitHub version](https://img.shields.io/github/package-json/v/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/blob/master/package.json)
-[![dependencies](https://img.shields.io/david/MichaelKaaden/redux-client-ng.svg)](https://img.shields.io/david/MichaelKaaden/redux-client-ng)
-[![devDependencies](https://img.shields.io/david/dev/MichaelKaaden/redux-client-ng.svg)](https://img.shields.io/david/dev/MichaelKaaden/redux-client-ng)
+[![dependencies](https://img.shields.io/david/MichaelKaaden/redux-client-ng.svg)](https://david-dm.org/MichaelKaaden/redux-client-ng)
+[![devDependencies](https://img.shields.io/david/dev/MichaelKaaden/redux-client-ng.svg)](https://david-dm.org/MichaelKaaden/redux-client-ng?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng/issues)
 [![license](https://img.shields.io/github/license/MichaelKaaden/redux-client-ng.svg)](https://github.com/MichaelKaaden/redux-client-ng)
 
