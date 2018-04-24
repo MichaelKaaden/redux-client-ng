@@ -1,5 +1,5 @@
 import * as ngRedux from "ng-redux";
-import { Counter, ICounter } from "../models/counter.model";
+import { ICounter } from "../models/counter.model";
 import { CounterService } from "../services/counter.service";
 import {
     CounterActionTypeKeys,
@@ -55,8 +55,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
         this.$redux.dispatch(this.buildSavePendingAction(index));
 
         this.counterService.decrementCounter(index, by)
-            .then((c) => {
-                const counter = new Counter(c.index, c.value);
+            .then((counter: ICounter) => {
                 this.$redux.dispatch(this.buildDecrementCompletedAction(index, counter));
             })
             .catch((error) => {
@@ -83,8 +82,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
         this.$redux.dispatch(this.buildSavePendingAction(index));
 
         this.counterService.incrementCounter(index, by)
-            .then((c) => {
-                const counter = new Counter(c.index, c.value);
+            .then((counter: ICounter) => {
                 this.$redux.dispatch(this.buildIncrementCompletedAction(index, counter));
             })
             .catch((error) => {
@@ -116,8 +114,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
         this.$redux.dispatch(this.buildLoadPendingAction(index));
 
         this.counterService.counter(index)
-            .then((c) => {
-                const counter = new Counter(c.index, c.value);
+            .then((counter: ICounter) => {
                 this.$redux.dispatch(this.buildLoadCompletedAction(index, counter));
             })
             .catch((error) => {
@@ -134,11 +131,7 @@ export class CounterActionCreatorService implements ICounterActionCreatorService
         this.$redux.dispatch(this.buildLoadAllPendingAction());
 
         this.counterService.counters()
-            .then((cs: ICounter[]) => {
-                const counters = [];
-                for (const c of cs) {
-                    counters.push(new Counter(c.index, c.value));
-                }
+            .then((counters: ICounter[]) => {
                 this.$redux.dispatch(this.buildLoadAllCompletedAction(counters));
             })
             .catch((error) => {

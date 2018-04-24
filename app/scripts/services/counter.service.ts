@@ -1,6 +1,6 @@
 import * as angular from "angular";
 
-import { ICounter } from "../models/counter.model";
+import { Counter, ICounter } from "../models/counter.model";
 import { ApiUrlsService } from "./api-urls/api-urls.service";
 import { IErrorFormattingService } from "./error-formatting.service";
 
@@ -61,7 +61,7 @@ export class CounterService implements ICounterService {
 
         return this.$timeout(() => {
             return counterResource.get(params).$promise.then((result: ICounter) => {
-                return result;
+                return new Counter(result.index, result.value);
             }).catch((error) => {
                 this.$log.error("CounterService.counter:",
                     this.errorFormattingService.formatErrorMessage(error));
@@ -88,7 +88,7 @@ export class CounterService implements ICounterService {
         });
 
         return countersResource.query().$promise.then((result: ICounter[]) => {
-            return result;
+            return result.map((counter: ICounter) => new Counter(counter.index, counter.value));
         }).catch((error) => {
             this.$log.error("CounterService.counters:",
                 this.errorFormattingService.formatErrorMessage(error));
@@ -118,7 +118,7 @@ export class CounterService implements ICounterService {
         };
 
         return updateResource.update(params, { count: value }).$promise.then((result) => {
-            return result;
+            return new Counter(result.index, result.value);
         }).catch((error) => {
             this.$log.error("CounterService.updateCounter:",
                 this.errorFormattingService.formatErrorMessage(error));
@@ -146,7 +146,7 @@ export class CounterService implements ICounterService {
 
         return this.$timeout(() => {
             return updateResource.update({ index }, { by }).$promise.then((result) => {
-                return result;
+                return new Counter(result.index, result.value);
             }).catch((error) => {
                 this.$log.error("CounterService.decrementCounter:",
                     this.errorFormattingService.formatErrorMessage(error));
@@ -175,7 +175,7 @@ export class CounterService implements ICounterService {
 
         return this.$timeout(() => {
             return updateResource.update({ index }, { by }).$promise.then((result) => {
-                return result;
+                return new Counter(result.index, result.value);
             }).catch((error) => {
                 this.$log.error("CounterService.incrementCounter:",
                     this.errorFormattingService.formatErrorMessage(error));
