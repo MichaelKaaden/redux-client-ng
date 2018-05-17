@@ -1,4 +1,5 @@
 import * as angular from "angular";
+import ngRedux from "ng-redux";
 
 import { ICounterActionCreatorService } from "../../actions/counter.action-creator.service";
 import { IAppState } from "../../models/app-state";
@@ -36,12 +37,12 @@ export class CounterContainerController implements ICounterContainerController {
     // capture this properly
     public decrement = (by: number): void => {
         this.counterActionCreatorService.decrement(this.counterIndex, by);
-    }
+    };
 
     // capture this properly
     public increment = (by: number): void => {
         this.counterActionCreatorService.increment(this.counterIndex, by);
-    }
+    };
 
     public load(): void {
         this.counterActionCreatorService.load(this.counterIndex);

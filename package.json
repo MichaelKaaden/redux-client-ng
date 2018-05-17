@@ -45,9 +45,9 @@
     "es6-shim": "^0.35.3",
     "jquery": "~2.2.4",
     "materialize-css": "~0.98.2",
-    "ng-redux": "^3.5.2",
+    "ng-redux": "^4.0.3",
     "ng-redux-router": "^0.1.2",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {

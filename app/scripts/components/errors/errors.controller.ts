@@ -1,3 +1,5 @@
+import ngRedux from "ng-redux";
+
 import { ErrorsActionCreatorService } from "../../actions/errors.action-creator.service";
 import { IAppState } from "../../models/app-state";
 
