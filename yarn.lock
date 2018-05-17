@@ -51,6 +51,10 @@
   version "1.6.45"
   resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.6.45.tgz#5b0b91a51d717f6fc816d59e1234d5292f33f7b9"
 
+"@types/cash@*":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@types/cash/-/cash-0.0.1.tgz#55889f346e3db6acb8cb9c64cc3580cf1d6dbf1a"
+
 "@types/es6-shim@^0.31.37":
   version "0.31.37"
   resolved "https://registry.yarnpkg.com/@types/es6-shim/-/es6-shim-0.31.37.tgz#d01fa9b61a6692e57387dde5483b0255659ba70f"
@@ -59,20 +63,16 @@
   version "2.8.7"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.7.tgz#3fe583928ae0a22cdd34cedf930eeffeda2602fd"
 
-"@types/jquery@*":
+"@types/jquery@*", "@types/jquery@^3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.2.tgz#8700226bdde24b6f98e3a60126dbaab3b2a3ab41"
 
-"@types/jquery@^2.0.44":
-  version "2.0.49"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.49.tgz#95bd7064caebf65bde10429dff491a1aea05b67d"
-
-"@types/materialize-css@~0.98.2":
-  version "0.98.3"
-  resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-0.98.3.tgz#ef7ab4ea3421338011921ef152c889c81ef72a42"
+"@types/materialize-css@~1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-1.0.3.tgz#d977f47fd26a232214cbd3be6123ab7fd01419e5"
   dependencies:
+    "@types/cash" "*"
     "@types/jquery" "*"
-    "@types/pickadate" "*"
 
 "@types/node@*":
   version "10.1.1"
@@ -81,12 +81,6 @@
 "@types/node@^9.4.7":
   version "9.6.17"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.17.tgz#00a225d8240c953c71e7a7336e153cd69ff704b6"
-
-"@types/pickadate@*":
-  version "3.5.31"
-  resolved "https://registry.yarnpkg.com/@types/pickadate/-/pickadate-3.5.31.tgz#b5d0c1b0f2b07653d41fded4aad2e86346a4247c"
-  dependencies:
-    "@types/jquery" "*"
 
 "@types/webpack-env@^1.13.6":
   version "1.13.6"
@@ -327,23 +321,19 @@ angular-touch@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/angular-touch/-/angular-touch-1.7.0.tgz#9e58a1257566a2b35d48e10d17b68e5599ee99c1"
 
-angular-translate-loader-static-files@^2.17.1:
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/angular-translate-loader-static-files/-/angular-translate-loader-static-files-2.17.1.tgz#958b08cecec24953e71d7365cc2751dda56598ad"
+angular-translate-loader-static-files@^2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/angular-translate-loader-static-files/-/angular-translate-loader-static-files-2.18.0.tgz#ad1f8ad7c8d4d54c820d10f856acf1e8d865211f"
   dependencies:
-    angular-translate "~2.17.1"
+    angular-translate "~2.18.0"
 
-angular-translate@^2.17.1, angular-translate@~2.17.1:
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.17.1.tgz#0fe526cabd6f6b39db34e344047f0e3c1978296e"
+angular-translate@^2.18.0, angular-translate@~2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.18.0.tgz#616a8cb0f7ec1d14709777028b91141fe7989527"
   dependencies:
-    angular ">=1.2.26 <=1.6"
+    angular ">=1.2.26 <=1.7"
 
-"angular@>=1.2.26 <=1.6":
-  version "1.6.10"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.10.tgz#eed3080a34d29d0f681ff119b18ce294e3f74826"
-
-angular@^1.7.0:
+"angular@>=1.2.26 <=1.7", angular@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.0.tgz#e45d679fc8d81040a4894c7ccc16a4e1ad0a9ca6"
 
@@ -3617,7 +3607,7 @@ fsevents@^1.0.0, fsevents@^1.1.2:
     nan "^2.9.2"
     node-pre-gyp "^0.10.0"
 
-fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
+fstream@^1.0.0, fstream@^1.0.2:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/fstream/-/fstream-1.0.11.tgz#5c1fb1f117477114f0632a0eb4b71b3cb0fd3171"
   dependencies:
@@ -4029,7 +4019,7 @@ gzip-size@^4.1.0:
     duplexer "^0.1.1"
     pify "^3.0.0"
 
-hammerjs@^2.0.4:
+hammerjs@^2.0.4, hammerjs@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
 
@@ -4998,11 +4988,11 @@ jit-grunt@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/jit-grunt/-/jit-grunt-0.10.0.tgz#008c3a7fe1e96bd0d84e260ea1fa1783457f79c2"
 
-jquery@>=1.7:
+jquery@>=1.7, "jquery@^3.0.0 || ^2.1.4", jquery@~3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
-jquery@^2.1.4, jquery@~2.2.4:
+jquery@^2.1.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
@@ -5764,13 +5754,12 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-materialize-css@~0.98.2:
-  version "0.98.2"
-  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-0.98.2.tgz#f9e4239fd27e2a917a0de379d74d508e2d92ec8e"
+"materialize-css@git+https://github.com/MichaelKaaden/materialize.git#~0.100.3":
+  version "0.100.2"
+  resolved "git+https://github.com/MichaelKaaden/materialize.git#3737fe99df45714d410bedb7109c6e78a4e974be"
   dependencies:
-    hammerjs "^2.0.4"
-    jquery "^2.1.4"
-    node-archiver "^0.3.0"
+    hammerjs "^2.0.8"
+    jquery "^3.0.0 || ^2.1.4"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -6151,13 +6140,6 @@ no-case@^2.2.0:
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
   dependencies:
     lower-case "^1.1.1"
-
-node-archiver@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/node-archiver/-/node-archiver-0.3.0.tgz#b9f1afe5006d0bdf29260181833a070978bc6947"
-  dependencies:
-    fstream "^1.0.10"
-    tar "^2.2.1"
 
 node-dir@0.1.8:
   version "0.1.8"
@@ -8701,7 +8683,7 @@ tapable@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.0.0.tgz#cbb639d9002eed9c6b5975eb20598d7936f1f9f2"
 
-tar@^2.0.0, tar@^2.2.1:
+tar@^2.0.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tar/-/tar-2.2.1.tgz#8e4d2a256c0e2185c6b18ad694aec968b83cb1d1"
   dependencies:
