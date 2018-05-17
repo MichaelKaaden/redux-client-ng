@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import * as ngRedux from "ng-redux";
+import ngRedux from "ng-redux";
 import logger from "redux-logger";
 import "./app.module";
 

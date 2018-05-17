@@ -1,4 +1,4 @@
-import * as ngRedux from "ng-redux";
+import ngRedux from "ng-redux";
 import { ICounter } from "../models/counter.model";
 import { CounterService } from "../services/counter.service";
 import {

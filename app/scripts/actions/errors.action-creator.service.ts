@@ -1,4 +1,4 @@
-import * as ngRedux from "ng-redux";
+import ngRedux from "ng-redux";
 import { ErrorActionTypeKeys } from "./error.actions";
 
 export class ErrorsActionCreatorService {

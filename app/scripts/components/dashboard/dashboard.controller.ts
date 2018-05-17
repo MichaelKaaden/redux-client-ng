@@ -1,4 +1,4 @@
-import * as ngRedux from "ng-redux";
+import ngRedux from "ng-redux";
 import { ICounterActionCreatorService } from "../../actions/counter.action-creator.service";
 import { IAppState } from "../../models/app-state";
 import { ICounter } from "../../models/counter.model";

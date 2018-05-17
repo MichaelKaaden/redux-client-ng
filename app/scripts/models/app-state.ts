@@ -7,6 +7,7 @@ export interface ICounterState {
 export interface IAppState {
     counters: ICounterState;
     errors: string[];
+    router?: any;
 }
 
 export const INITIAL_COUNTERS_STATE: ICounterState = {
@@ -14,8 +15,3 @@ export const INITIAL_COUNTERS_STATE: ICounterState = {
 };
 
 export const INITIAL_ERRORS_STATE: string[] = [];
-
-export const INITIAL_STATE: IAppState = {
-    counters: INITIAL_COUNTERS_STATE,
-    errors: INITIAL_ERRORS_STATE,
-};
