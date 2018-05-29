@@ -1,7 +1,12 @@
 import ngRedux from "ng-redux";
 import { ErrorActionTypeKeys } from "./error.actions";
 
-export class ErrorsActionCreatorService {
+export interface IErrorsActionCreatorService {
+    setError(methodName: string, message: string);
+    resetError();
+}
+
+export class ErrorsActionCreatorService implements IErrorsActionCreatorService {
     public static serviceId = "rdxErrorsActionCreatorService";
     public static $inject = [
         "$ngRedux",
