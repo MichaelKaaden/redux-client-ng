@@ -1,34 +1,71 @@
 import ngRedux from "ng-redux";
+import { createSelector } from "reselect";
 import { ICounterActionCreatorService } from "../../actions/counter.action-creator.service";
-import { IAppState } from "../../models/app-state";
+import { IConfiguration } from "../../configuration";
+import { IAppState, ICounterState } from "../../models/app-state";
 import { ICounter } from "../../models/counter.model";
 
 export class DashboardController {
-    public static controllerId = "rdxDashboardController";
     public static $inject = [
         "$ngRedux",
         "$scope",
+        "rdxConfiguration",
         "rdxCounterActionCreatorService",
     ];
+    public hasBeenCalled: number;
+    public isReselectDemoMode: boolean;
 
-    constructor(private $ngRedux: ngRedux.INgRedux,
-                private $scope: angular.IScope,
-                private counterActionCreatorService: ICounterActionCreatorService) {
-        const unsubscribe = this.$ngRedux.connect(this.mapStateToTarget.bind(this))(this);
+    constructor(
+        private $ngRedux: ngRedux.INgRedux,
+        private $scope: angular.IScope,
+        private configuration: IConfiguration,
+        private counterActionCreatorService: ICounterActionCreatorService,
+    ) {
+        this.hasBeenCalled = 0;
+        this.isReselectDemoMode = this.configuration.isReselectDemoMode;
+        const unsubscribe = this.$ngRedux.connect(
+            this.mapStateToTarget.bind(this),
+        )(this);
         this.$scope.$on("$destroy", unsubscribe);
         this.counterActionCreatorService.loadAll();
     }
 
-    private getCounterValueSum(state: IAppState) {
-        return state.counters.all.reduce((accumulator: number, current: ICounter) => accumulator + current.value, 0);
-    }
+    private countersSelector = (state: IAppState) => state.counters;
+
+    private countersAllSelector = createSelector(
+        this.countersSelector,
+        (counters: ICounterState) => {
+            return counters.all;
+        },
+    );
+
+    private numOfCountersSelector = createSelector(
+        this.countersSelector,
+        (counters: ICounterState) => counters.all.length,
+    );
+
+    private counterValueSumSelector = createSelector(
+        this.countersSelector,
+        (counters: ICounterState) =>
+            counters.all.reduce(
+                (accumulator: number, current: ICounter) =>
+                    accumulator + current.value,
+                0,
+            ),
+    );
+
+    private averageSelector = createSelector(
+        [this.counterValueSumSelector, this.numOfCountersSelector],
+        ((sum: number, length: number) => sum / length),
+    );
 
     private mapStateToTarget(state: IAppState) {
+        this.hasBeenCalled++;
         return {
-            average: this.getCounterValueSum(state) / state.counters.all.length,
-            counterValueSum: this.getCounterValueSum(state),
-            counters: state.counters.all,
-            numOfCounters: state.counters.all.length,
+            average: this.averageSelector(state),
+            counterValueSum: this.counterValueSumSelector(state),
+            counters: this.countersAllSelector(state),
+            numOfCounters: this.numOfCountersSelector(state),
         };
     }
 }

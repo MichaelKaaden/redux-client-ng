@@ -1,6 +1,5 @@
 import * as angular from "angular";
 import ngRedux from "ng-redux";
-import logger from "redux-logger";
 import "./app.module";
 
 import { rootReducer } from "./reducers/reducers";
@@ -58,7 +57,8 @@ const reduxConfig = ($ngReduxProvider: ngRedux.INgReduxProvider) => {
 
     $ngReduxProvider.createStoreWith(rootReducer, [
         "ngRouterMiddleware",
-        logger,
+        // don't log for the moment
+        // logger,
     ], enhancers);
 };
 reduxConfig.$inject = ["$ngReduxProvider"];
