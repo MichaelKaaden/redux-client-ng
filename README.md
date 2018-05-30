@@ -29,7 +29,7 @@ the other component's data, so one would either have to deal
 with this chaos or notify the other components about change
 with e. g. events. This is complicated, error-prone and very
 ugly. Redux perfectly solves this problem. So I wrote this
-app together with the server side which you can find 
+app together with the server side which you can find
 [here](https://github.com/MichaelKaaden/redux-server).
 
 The app utilizes
@@ -40,9 +40,16 @@ from and to the REST service, it uses
 
 ## Reselect Demo Mode
 
-This app uses the reselect package for memoizing selectors. Set `configuration.isReselectDemoMode`
-to true to demonstrate the effect. You will see that triggering errors won't
-recalculate the counters.
+This app uses the reselect package for memoizing selectors. Set
+`configuration.isReselectDemoMode` to `true` to demonstrate the
+effect. You will see that triggering errors won't recalculate
+the counters.
+
+Press the button to trigger some (false) errors and watch the
+`CounterContainer.mapStateToTarget() has been called` count. It
+is increasing with every error being generated. The
+`The state has been recalculated` count will stay the same, though,
+which demonstrates the memoizing effect.
 
 ## Development server
 
