@@ -30,6 +30,14 @@ export class CounterContainerController implements ICounterContainerController {
     public recalculateCount: number;
     public isReselectDemoMode: boolean;
 
+    private counterSelector = createSelector(
+        this.countersAllSelector,
+        (counters: ICounter[]) => {
+            this.recalculateCount++;
+            return counters.find((item) => item.index === this.counterIndex);
+        },
+    );
+
     constructor(
         private $ngRedux: ngRedux.INgRedux,
         private $scope: angular.IScope,
@@ -40,16 +48,6 @@ export class CounterContainerController implements ICounterContainerController {
         this.recalculateCount = 0;
         this.isReselectDemoMode = this.configuration.isReselectDemoMode;
     }
-
-    private countersAllSelector = (state: IAppState) => state.counters.all;
-
-    private counterSelector = createSelector(
-        this.countersAllSelector,
-        (counters: ICounter[]) => {
-            this.recalculateCount++;
-            return counters.find((item) => item.index === this.counterIndex);
-        },
-    );
 
     public $onInit() {
         const unsubscribe = this.$ngRedux.connect(
@@ -62,15 +60,19 @@ export class CounterContainerController implements ICounterContainerController {
     // capture this properly
     public decrement = (by: number): void => {
         this.counterActionCreatorService.decrement(this.counterIndex, by);
-    }
+    };
 
     // capture this properly
     public increment = (by: number): void => {
         this.counterActionCreatorService.increment(this.counterIndex, by);
-    }
+    };
 
     public load(): void {
         this.counterActionCreatorService.load(this.counterIndex);
+    }
+
+    private countersAllSelector(state: IAppState) {
+        return state.counters.all;
     }
 
     private mapStateToTarget(state: IAppState) {

@@ -15,23 +15,6 @@ export class DashboardController {
     public hasBeenCalled: number;
     public isReselectDemoMode: boolean;
 
-    constructor(
-        private $ngRedux: ngRedux.INgRedux,
-        private $scope: angular.IScope,
-        private configuration: IConfiguration,
-        private counterActionCreatorService: ICounterActionCreatorService,
-    ) {
-        this.hasBeenCalled = 0;
-        this.isReselectDemoMode = this.configuration.isReselectDemoMode;
-        const unsubscribe = this.$ngRedux.connect(
-            this.mapStateToTarget.bind(this),
-        )(this);
-        this.$scope.$on("$destroy", unsubscribe);
-        this.counterActionCreatorService.loadAll();
-    }
-
-    private countersSelector = (state: IAppState) => state.counters;
-
     private countersAllSelector = createSelector(
         this.countersSelector,
         (counters: ICounterState) => {
@@ -56,8 +39,27 @@ export class DashboardController {
 
     private averageSelector = createSelector(
         [this.counterValueSumSelector, this.numOfCountersSelector],
-        ((sum: number, length: number) => sum / length),
+        (sum: number, length: number) => sum / length,
     );
+
+    constructor(
+        private $ngRedux: ngRedux.INgRedux,
+        private $scope: angular.IScope,
+        private configuration: IConfiguration,
+        private counterActionCreatorService: ICounterActionCreatorService,
+    ) {
+        this.hasBeenCalled = 0;
+        this.isReselectDemoMode = this.configuration.isReselectDemoMode;
+        const unsubscribe = this.$ngRedux.connect(
+            this.mapStateToTarget.bind(this),
+        )(this);
+        this.$scope.$on("$destroy", unsubscribe);
+        this.counterActionCreatorService.loadAll();
+    }
+
+    private countersSelector(state: IAppState) {
+        return state.counters;
+    }
 
     private mapStateToTarget(state: IAppState) {
         this.hasBeenCalled++;
