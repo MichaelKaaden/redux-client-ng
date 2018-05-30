@@ -38,6 +38,12 @@ For asynchronous action like loading and saving counters
 from and to the REST service, it uses
 [redux-thunk](https://github.com/gaearon/redux-thunk).
 
+## Reselect Demo Mode
+
+This app uses the reselect package for memoizing selectors. Set `configuration.isReselectDemoMode`
+to true to demonstrate the effect. You will see that triggering errors won't
+recalculate the counters.
+
 ## Development server
 
 Run `yarn dev` to run the app in development mode
