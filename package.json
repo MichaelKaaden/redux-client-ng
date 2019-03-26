@@ -1,6 +1,6 @@
 {
   "name": "redux-client",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A little redux example",
   "scripts": {
     "analyze": "webpack --config webpack.analyze.js",
