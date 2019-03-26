@@ -5,7 +5,7 @@ const common = require("./webpack.common");
 const webpack = require("webpack");
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: "none",
   devtool: "inline-source-map",
   output: {
     filename: "[name].js",
@@ -16,14 +16,21 @@ module.exports = merge(common, {
     noEmitOnErrors: true
   },
   plugins: [
-    new CleanWebpackPlugin(["coverage"]),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        path.resolve(process.cwd(), "coverage")
+      ]
+    }),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("development")
+    }),
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
     // see https://stackoverflow.com/questions/39131809/karma-webpack-sourcemaps-not-working
     new webpack.SourceMapDevToolPlugin({
       filename: null, // if no value is provided the sourcemap is inlined
-      test: /\.(ts|js)($|\?)/i // process .js and .ts files only
+      test: /\.(ts)($|\?)/i // process .js and .ts files only
     })
   ],
   module: {
@@ -33,10 +40,7 @@ module.exports = merge(common, {
         test: /\.(js|ts)$/,
         loader: "istanbul-instrumenter-loader",
         include: [/\.ts$/],
-        exclude: [
-          /\.spec\.ts$/,
-          /node_modules/
-        ]
+        exclude: [/\.spec\.ts$/, /node_modules/]
       }
     ]
   }

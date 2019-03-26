@@ -12,3 +12,8 @@
 
 <p translate="DASHBOARD.AVERAGE"
    translate-values="{ average: vm.average }"></p>
+
+<div ng-if="vm.isReselectDemoMode">
+    <br>
+    <span><code>Dashboard.mapStateToTarget()</code> has been called {{vm.hasBeenCalled}} times.</span>
+</div>

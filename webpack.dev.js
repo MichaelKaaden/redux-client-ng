@@ -9,7 +9,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: "/dist",
     hot: true,
-    historyApiFallback: true,  // without this, any URL beyond / won't work, see https://webpack.js.org/configuration/dev-server/#devserver-historyapifallback
+    historyApiFallback: true, // without this, any URL beyond / won't work, see https://webpack.js.org/configuration/dev-server/#devserver-historyapifallback
     port: 9000
   },
   output: {
@@ -32,6 +32,9 @@ module.exports = merge(common, {
     }
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("development")
+    })
   ]
 });

@@ -1,8 +1,8 @@
 import * as angular from "angular";
 import ngRedux from "ng-redux";
 import logger from "redux-logger";
-import "./app.module";
 
+import "./app.module";
 import { rootReducer } from "./reducers/reducers";
 import "./routing";
 

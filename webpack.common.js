@@ -5,6 +5,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const webpack = require("webpack");
 
+// enable this to show details in node.js' deprecation warnings
+// process.traceDeprecation = true;
+
 module.exports = {
   entry: {
     main: "./app/scripts/app.ts",
@@ -23,7 +26,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [path.resolve(process.cwd(), "dist")]
+    }),
     new CopyWebpackPlugin([
       {
         from: "app/**/*.json"
@@ -48,31 +53,34 @@ module.exports = {
     // new webpack.optimize.CommonsChunkPlugin({
     //     name: 'runtime'
     // }),
-    new webpack.ContextReplacementPlugin(  // restrict Moment.js locale
-      /moment[\/\\]locale$/,
-      /de|en/
-    ),
-    new webpack.ProvidePlugin({ // see https://github.com/krescruz/angular-materialize
-      "window.jQuery": "jquery"
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de|en/), // restrict Moment.js locale
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      Hamster: "hamsterjs",
+      "window.jQuery": "jquery" // see https://github.com/krescruz/angular-materialize
     })
   ],
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader" // creates style nodes from JS strings
-        }, {
-          loader: "css-loader", // translates CSS into CommonJS
-          options: {
-            sourceMap: true
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader", // compiles Sass to CSS
+            options: {
+              sourceMap: true
+            }
           }
-        }, {
-          loader: "sass-loader", // compiles Sass to CSS
-          options: {
-            sourceMap: true
-          }
-        }]
+        ]
       },
       {
         test: /\.css$/,
@@ -116,9 +124,7 @@ module.exports = {
       },
       {
         test: /\.(csv|tsv)$/,
-        use: [
-          "csv-loader"
-        ]
+        use: ["csv-loader"]
       },
       {
         test: /\.html$/,
@@ -131,15 +137,13 @@ module.exports = {
       },
       {
         test: /\.xml$/,
-        use: [
-          "xml-loader"
-        ]
+        use: ["xml-loader"]
       },
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
         options: {
-          transpileOnly: true  // type checking happens in fork plugin
+          transpileOnly: true // type checking happens in fork plugin
         },
         exclude: /node_modules/
         // include: path.resolve(__dirname, 'app/scripts')
@@ -152,8 +156,6 @@ module.exports = {
     // },
     extensions: [".tsx", ".ts", ".js"],
 
-    modules: [
-      "node_modules"
-    ]
+    modules: ["node_modules"]
   }
 };

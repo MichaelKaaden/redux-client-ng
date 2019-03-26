@@ -9,3 +9,10 @@
                   decrement="$ctrl.decrement"
                   increment="$ctrl.increment"
                   load="$ctrl.load"></rdx-number-input>
+
+<div ng-if="$ctrl.isReselectDemoMode">
+    <br>
+    <span><code>CounterContainer.mapStateToTarget()</code> has been called {{$ctrl.hasBeenCalled}} times.</span>
+    <br>
+    <span>The state has been recalculated {{$ctrl.recalculateCount}} times.</span>
+</div>

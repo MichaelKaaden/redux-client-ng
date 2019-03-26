@@ -7,3 +7,8 @@
 
     <a class="waves-effect waves-light btn" ng-click="$ctrl.reset()">Reset</a>
 </div>
+
+<div ng-if="$ctrl.isReselectDemoMode">
+    <br>
+    <span><code>Errors.mapStateToTarget()</code> has been called {{$ctrl.hasBeenCalled}} times.</span>
+</div>

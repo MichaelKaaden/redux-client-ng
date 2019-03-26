@@ -2,6 +2,13 @@
 
 <p><a href="/dashboard" translate>COUNTERS.LINK_TO_DASHBOARD</a></p>
 
+<div ng-if="vm.isReselectDemoMode">
+    <p>To show <code>reselect</code>'s power, press this button and watch the recalculation counters *not* going up
+        though the state is constantly changing for each generated (false!) error.</p>
+
+    <a class="waves-effect waves-light btn" ng-click="vm.generateSomeErrors()">Generate some (false) errors</a>
+</div>
+
 <rdx-errors></rdx-errors>
 
 <hr>

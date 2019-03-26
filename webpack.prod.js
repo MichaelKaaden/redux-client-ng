@@ -42,7 +42,21 @@ module.exports = merge(common, {
     },
     runtimeChunk: {
       name: "manifest"
-    }
+    },
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true
+            }
+          ]
+        },
+        canPrint: true
+      })
+    ]
   },
   plugins: [
     new UglifyJSPlugin({
@@ -50,7 +64,17 @@ module.exports = merge(common, {
     }),
     extractSASS,
     // extractCSS,
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production")
+    }),
     new webpack.HashedModuleIdsPlugin()
+    // new CompressionPlugin({
+    //     filename: "[file].gz[query]",
+    //     test: /\.js$|\.css$|\.json$/,
+    //     algorithm: "gzip",
+    //     threshold: 4096,
+    //     deleteOriginalAssets: false,
+    // }),
   ],
   module: {
     rules: [
